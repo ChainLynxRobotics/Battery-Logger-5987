@@ -15,9 +15,10 @@ import plotly
 import plotly.express as px
 
 pygame.mixer.init()
-#cap = cv2.VideoCapture(0)
-#cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
-#cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
+cap = cv2.VideoCapture(0)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
+cap.release()
 # Define the path for persistent data storage
 PERSISTENT_FILE = 'battery_status.json'
 stop_flag = threading.Event()  # Create an Event object to signal threads to stop
@@ -26,13 +27,13 @@ app = Flask(__name__)
 app.secret_key = '1234567890'
 
 # Define team number default
-TEAM_NUMBER = "5987"
+TEAM_NUMBER = "8248"
 # Create a lock for thread safety
 battery_status_lock = threading.Lock()
 
-COOLDOWN_DURATION_TIME = 600  # seconds
+COOLDOWN_DURATION_TIME = 300  # seconds
 
-ADVANCED_LOGGING = True  # Default is on
+ADVANCED_LOGGING = False  # Default is on
 
 # Battery status tracking dictionary
 battery_status = {}
