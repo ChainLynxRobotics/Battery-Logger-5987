@@ -15,9 +15,9 @@ import plotly
 import plotly.express as px
 
 pygame.mixer.init()
-cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
+#cap = cv2.VideoCapture(0)
+#cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+#cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 # Define the path for persistent data storage
 PERSISTENT_FILE = 'battery_status.json'
 stop_flag = threading.Event()  # Create an Event object to signal threads to stop
@@ -949,8 +949,8 @@ if __name__ == "__main__":
     initialize_csv()
 
     # Start the barcode scanning in a background thread
-    scanning_thread = threading.Thread(target=scan_barcode, daemon=True)
-    scanning_thread.start()
+    # scanning_thread = threading.Thread(target=scan_barcode, daemon=True)
+    # scanning_thread.start()
 
     # Start the auto-update cooldown statuses in a background thread
     cooldown_thread = threading.Thread(target=auto_update_cooldown_statuses, daemon=True)
